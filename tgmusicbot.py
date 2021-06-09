@@ -117,7 +117,7 @@ async def search_song(_, message):
 @app.on_inline_query()
 def inline_query_handler(client, query):
    #bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
-   bot_results = [InlineQueryResultArticle(tittle='test', description=query.query)]
+   bot_results = [InlineQueryResultArticle(title='test', description=query.query)]
    query.answer(results=bot_results, cache_time=1)
 
 # # /apply # #
