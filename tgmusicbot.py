@@ -109,7 +109,7 @@ async def ping_pong(_, message):
 # # apply # #
 @app.on_message(main_filter & filters.regex("^/search$"))
 async def search_song(_, message):
-   await _reply_and_delete_later(message, "searching",DELAY_DELEETE_INFORM)
+   await _reply_and_delete_later(message, "searching",DELAY_DELETE_INFORM)
 
 # # /apply # #
 
