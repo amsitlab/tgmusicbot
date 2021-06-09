@@ -51,7 +51,7 @@ import asyncio
 from datetime import timedelta
 from urllib.parse import urlparse
 from pyrogram import Client, filters, idle
-from pyrogram.types import Message
+from pyrogram.types import (Message, InlineQueryResultArticle)
 from youtube_dl import YoutubeDL
 from PIL import Image
 import ffmpeg
@@ -116,7 +116,8 @@ async def search_song(_, message):
 
 @app.on_inline_query()
 def inline_query_handler(client, query):
-   bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
+   #bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
+   bot_results = [InlineQueryResultArticle(tittle='test', description=query.query)]
    query.answer(results=bot_results, cache_time=1)
 
 # # /apply # #
