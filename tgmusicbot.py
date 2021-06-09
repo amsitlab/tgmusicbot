@@ -103,7 +103,7 @@ main_filter = (
 
 @app.on_message(main_filter & filters.regex("^/ping$"))
 async def ping_pong(_, message):
-    await _reply_and_delete_later(message, "pong",
+    await _reply_and_delete_later(message, "pong!!!",
                                   DELAY_DELETE_INFORM)
 
 # # apply # #
