@@ -111,6 +111,14 @@ async def ping_pong(_, message):
 async def search_song(_, message):
    await _reply_and_delete_later(message, "searching",DELAY_DELETE_INFORM)
 
+
+
+
+@app.on_inline_query()
+def inline_query_handler(client, query):
+   bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
+   query.answer(results=bot_results, cache_time=1)
+
 # # /apply # #
 
 @app.on_message(main_filter
