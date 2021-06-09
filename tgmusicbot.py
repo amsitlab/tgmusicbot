@@ -130,7 +130,7 @@ def _inline_query_fetch(query):
 
 @app.on_inline_query()
 def inline_query_handler(client, query):
-   """query.answer(
+   '''query.answer(
         results=[
             InlineQueryResultArticle(
                 title="Installation",
@@ -168,8 +168,9 @@ def inline_query_handler(client, query):
             )
         ],
         cache_time=1
-    )"""
-    res=_inline_query_fetch(query.query)
+    )
+    '''
+    res = _inline_query_fetch(query.query)
     query.answer(results=res, cache_time=1)
 
    #bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
