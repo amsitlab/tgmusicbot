@@ -112,11 +112,25 @@ async def search_song(_, message):
    await _reply_and_delete_later(message, "searching",DELAY_DELETE_INFORM)
 
 
+from youtube_search import YoutubeSearch
+
+def _inline_query_fetch(query):
+   results = []
+   search = YoutubeSearch(query).to_dict()
+   for r in search:
+      url = "https://youtube.com%s" % (r['url_suffix'])
+      results.append(InlineQueryResultArticle(
+            title=r['title'],
+            input_message_content=InputTextMessageContent(url),
+            description="%s min | %s | %s" % (r['duration'], r['views'], r['publish_time']),
+            thumb_url=r['thumbnails'][0]
+         ))
+   return results
 
 
 @app.on_inline_query()
 def inline_query_handler(client, query):
-   query.answer(
+   """query.answer(
         results=[
             InlineQueryResultArticle(
                 title="Installation",
@@ -154,7 +168,10 @@ def inline_query_handler(client, query):
             )
         ],
         cache_time=1
-    )
+    )"""
+    res=_inline_query_fetch(query.query)
+    query.answer(results=res, cache_time=1)
+
    #bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
    #bot_results = [InlineQueryResultArticle(title='test', description=query.query)]
    #query.answer(results=bot_results, cache_time=1)
