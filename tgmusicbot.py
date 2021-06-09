@@ -107,7 +107,7 @@ async def ping_pong(_, message):
                                   DELAY_DELETE_INFORM)
 
 # # applu # #
-@app.on_message(main_filter & filters.regex("^/search "))
+@app.on_message(main_filter & filters.regex("^/search$"))
 async def search_song(_, message):
    await _reply_and_delete_later(message, "pong",DELAY_DELEETE_INFORM);
 
