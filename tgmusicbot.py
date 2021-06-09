@@ -124,7 +124,7 @@ def inline_query_handler(client, query):
                     "Here's how to install **Pyrogram**"
                 ),
                 url="https://docs.pyrogram.org/intro/install",
-                description=qury.query,
+                description=query.query,
                 thumb_url="https://i.imgur.com/JyxrStE.png",
                 reply_markup=InlineKeyboardMarkup(
                     [
