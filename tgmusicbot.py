@@ -130,52 +130,9 @@ def _inline_query_fetch(query):
 
 @app.on_inline_query()
 def inline_query_handler(client, query):
-   '''query.answer(
-        results=[
-            InlineQueryResultArticle(
-                title="Installation",
-                input_message_content=InputTextMessageContent(
-                    "Here's how to install **Pyrogram**"
-                ),
-                url="https://docs.pyrogram.org/intro/install",
-                description=query.query,
-                thumb_url="https://i.imgur.com/JyxrStE.png",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton(
-                            "Open website",
-                            url="https://docs.pyrogram.org/intro/install"
-                        )]
-                    ]
-                )
-            ),
-            InlineQueryResultArticle(
-                title="Usage",
-                input_message_content=InputTextMessageContent(
-                    "Here's how to use **Pyrogram**"
-                ),
-                url="https://docs.pyrogram.org/start/invoking",
-                description="How to use Pyrogram",
-                thumb_url="https://i.imgur.com/JyxrStE.png",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton(
-                            "Open website",
-                            url="https://docs.pyrogram.org/start/invoking"
-                        )]
-                    ]
-                )
-            )
-        ],
-        cache_time=1
-    )
-    '''
-    res = _inline_query_fetch(query.query)
-    query.answer(results=res, cache_time=1)
+   res = _inline_query_fetch(query.query)
+   query.answer(results=res, cache_time=1)
 
-   #bot_results = app.get_inline_bot_results("ytsongdl_bot", query.query)
-   #bot_results = [InlineQueryResultArticle(title='test', description=query.query)]
-   #query.answer(results=bot_results, cache_time=1)
 
 # # /apply # #
 
